@@ -1,5 +1,5 @@
 const express = require ('express')
-const {criarBanco} = require('./database')
+const { criarBanco } = require('./database')
 
 const app = express()
 
@@ -19,7 +19,9 @@ app.use(express.json())
     console.log(`servidor rodando em http://localhost:${PORT}`)
 
  })
-app.get("/banco", async (req,res) => {const db = await criarBanco() 
+app.get("/banco", async (req,res) => {
+   
+const db = await criarBanco() 
 
 const obanco = await db.all(`SELECT * FROM banco`)
 
@@ -40,4 +42,13 @@ const bancoEspecifico = await db.all(`SELECT * FROM banco WHERE id = ?`,[id])
 res.json(bancoEspecifico)
 })
 
+ app.put("/banco/:id", async (req,res)=> {const { id }= req.parms
+
+const {stats_resolucao} = req.body
+
+} )
+
+  
+
+ 
 
