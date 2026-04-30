@@ -44,11 +44,19 @@ res.json(bancoEspecifico)
 
  app.put("/banco/:id", async (req,res)=> {const { id }= req.parms
 
-const {stats_resolucao} = req.body
+   
 
-} )
+    const {status_resolucao} = req.body
 
+    const db = await criarBanco()
+    
+    await db.run(`UPDATE banco
+      SET descricao = ?`,[stats_resolucao])
+   
+   res.send(`o banco de ${id} foi atualízada com sucesso`)
+   
+   
+   } )
   
 
  
-
